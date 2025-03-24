@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mood Music Logger</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+    }
+    form, .log {
+      margin-bottom: 2rem;
+    }
+    .log-item {
+      background: #f0f0f0;
+      padding: 10px;
+      margin-bottom: 8px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎵 Mood-Based Music Logger</h1>
+
+  <form id="moodForm">
+    <label>Mood: <input type="text" id="mood" required /></label><br><br>
+    <label>Song: <input type="text" id="song" required /></label><br><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="message"></div>
+
+  <h2>📜 Mood Log</h2>
+  <div id="moodLog" class="log"></div>
+
+  <script>
+    const form = document.getElementById('moodForm');
+    const message = document.getElementById('message');
+    const moodLog = document.getElementById('moodLog');
+
+    // Submit form
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const mood = document.getElementById('mood').value;
+      const song = document.getElementById('song').value;
+
+      const res = await fetch('http://localhost:3001/api/moods', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ mood, song }),
+      });
+
+      if (res.ok) {
+        message.textContent = ` Mood saved! Mood: ${mood}, Song: ${song}`;
+        form.reset();
+        loadMoods(); // Refresh log
+      } else {
+        message.textContent = ' Error submitting mood.';
+      }
+    });
+
+    // Load mood log
+    async function loadMoods() {
+      const res = await fetch('http://localhost:3000/api/moods');
+      const data = await res.json();
+
+      moodLog.innerHTML = data.map(entry => `
+        <div class="log-item">
+          <strong>Mood:</strong> ${entry.mood} <br>
+          <strong>Song:</strong> ${entry.song}
+        </div>
+      `).join('');
+    }
+
+    // Load on page start
+    loadMoods();
+  </script>
+</body>
+</html>
+
+
+

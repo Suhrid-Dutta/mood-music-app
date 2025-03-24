@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+  font-family: sans-serif;
+  padding: 2rem;
+  background-color: #e0e0e0;
+  min-height: 100vh;
+}
+
+select, button {
+  padding: 10px;
+  margin: 10px;
+  font-size: 1rem;
+}
+
+.recommendations {
+  margin-top: 2rem;
+}
+
+.track {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.error {
+  color: red;
+  margin-top: 1rem;
+}
