@@ -42,3 +42,7 @@ A full-stack web application that recommends songs based on the user's mood usin
 git clone https://github.com/Suhrid-Dutta/mood-music-app.git
 cd mood-music-app
 
+## 📬 Contact
+
+Suhrid Dutta – [LinkedIn](https:https://www.linkedin.com/in/suhrid-dutta-530830206)  
+Project Link – [https://github.com/Suhrid-Dutta/mood-music-app](https://github.com/Suhrid-Dutta/mood-music-app)
