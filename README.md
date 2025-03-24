@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-![App Screenshot](mood-music-app.png)
-=======
 # 🎧 Mood Music App
 
 A full-stack web application that recommends songs based on the user's mood using the Spotify API. Built with React, Node.js, Express, and MySQL.
