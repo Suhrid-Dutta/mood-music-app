@@ -8,7 +8,7 @@ A full-stack web application that recommends songs based on the user's mood usin
 
 ## 📸 Preview
 
-![App Screenshot](./preview.png)
+![App Screenshot](./mood-music-app.png)
 
 ## 🧠 Features
 
